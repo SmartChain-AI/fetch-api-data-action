@@ -82,6 +82,8 @@ name: Refresh Feed
 on:
   schedule:
     - cron: 10 15 * * 0-6
+permissions:
+  contents: write
 jobs:
   refresh-feed:
     runs-on: ubuntu-latest
@@ -112,6 +114,8 @@ name: Build and Deploy
 on:
   schedule:
     - cron: 10 16 * * 0-6
+permissions:
+  contents: write
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
