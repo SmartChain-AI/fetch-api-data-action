@@ -1,4 +1,4 @@
-name: unit-tests
+name: Unit Tests 🧪
 on:
   pull_request:
     branches:
@@ -7,7 +7,7 @@ on:
       - releases/v2
   push:
     branches:
-      - dev
+      - '*'
     tags-ignore:
       - '*.*'
 jobs:
@@ -19,7 +19,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20.10.0'
+          node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install Yarn
@@ -33,6 +33,6 @@ jobs:
           yarn test
 
       - name: Uploade CodeCov Report
-        uses: codecov/codecov-action@v3.1.4
+        uses: codecov/codecov-action@v4.3.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
